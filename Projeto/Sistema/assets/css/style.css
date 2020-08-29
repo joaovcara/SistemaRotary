@@ -1,0 +1,9 @@
+*{
+	font-family: 'Arial', sans-serif;
+}
+
+h1, h2{
+	font-size: 22px;
+	font-weight: bold;
+	color: #3155A4;
+}
