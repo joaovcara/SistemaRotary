@@ -1,0 +1,12 @@
+Introdução
+Referencial Teórico
+	Jutisficativa (mais tupã chuvas e alagamentos em tupã nos últimos 3 anos)
+	Objetivos Geral e os Específicos (app de monitoramento de clima, medição de chuva, tecnologias)
+	Problema e Hipóteses ()
+Metodologia (android studio, bd, photoshop)
+	Materiais e Método (4.000 Photoshop)
+Resultados
+	Manual do sistema
+Discussão
+Conclusão
+Referências
