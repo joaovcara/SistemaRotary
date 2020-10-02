@@ -69,6 +69,8 @@
 
             <form class="pb-5" action="" method="POST">
 
+                <input type="hidden" name="add_usuario" value="add_usuario">
+
                 <div class="form-group" >
 
                     <label>Nome</label>
