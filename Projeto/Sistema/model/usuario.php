@@ -3,7 +3,7 @@ require_once("banco.php");
 
 class Usuario {	
 	
-  public $banco;
+	public $banco;
 	
 	function __construct() {
 		
@@ -328,7 +328,5 @@ class Usuario {
     		echo $e->getMessage();
 		}
 	}
-
-
 }
 ?>

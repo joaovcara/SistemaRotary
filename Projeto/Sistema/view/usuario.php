@@ -67,12 +67,12 @@
 
             <h2 class="pb-4">Cadastro de Usuário</h2>
 
-            <form class="pb-5">
+            <form class="pb-5" action="" method="POST">
 
-                <div class="form-group">
+                <div class="form-group" >
 
                     <label>Nome</label>
-                    <input type="text" name="nome" class="form-control" value="">
+                    <input type="text" name="nome" class="form-control"  value="<?= $_POST['nome']; ?>">
 
                 </div>
 
@@ -86,11 +86,18 @@
                 <div class="form-group">
 
                     <label>E-mail</label>
-                    <input type="mail" name="email" class="form-control">
+                    <input type="mail" name="email" class="form-control"  value="<?= $_POST['email']; ?>">
 
                 </div>
 
                 <div class="form-group pt-3">
+
+                    <div class="form-group col-6 p-0">
+
+                        <label>CEP</label>                            
+                        <input type="text" name="cep" class="form-control">
+
+                    </div>
 
                     <label>Endereço</label>
                     <input type="text" name="endereco" class="form-control">
@@ -135,14 +142,9 @@
 
                 <div class="row col-12 p-0 m-0">
 
+
+
                     <div class="form-group col-6 p-0">
-
-                        <label>CEP</label>
-                        <input type="text" name="cep" class="form-control">
-
-                    </div>
-
-                    <div class="form-group col-6 p-0 pl-3">
 
                         <label>Telefone</label>
                         <input type="text" name="telefone" class="form-control">

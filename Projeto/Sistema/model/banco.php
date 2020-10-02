@@ -1,9 +1,9 @@
 <?php
 class Banco extends PDO{
 	
-	private $dsn = 'mysql:dbname=taskflow;host=localhost;charset=utf8;';
+	private $dsn = 'mysql:dbname=Rotary;host=localhost;charset=utf8;';
 	private $user = 'root';
-	private $password = '';
+	private $password = 'maria@2020';
 	private $pdo;
 	
 	private     $_abreSessao = true; 		// Inicia a sessão com um session_start()?
@@ -18,7 +18,7 @@ class Banco extends PDO{
 				//Conexao com o banco via PDO
 				$dbh = parent::__construct( $this->dsn , $this->user , $this->password );
 				$this->pdo = $dbh;
-				
+
 				// Verifica se precisa iniciar a sessão
 				if ($this->_abreSessao == true) {
 					@session_start();
