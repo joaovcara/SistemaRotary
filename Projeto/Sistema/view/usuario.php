@@ -1,3 +1,22 @@
+<?php
+    
+    $nome = "";
+    $email = "";
+
+    if(isset($_POST['nome'])){
+
+        $nome = $_POST['nome'];
+
+    }
+
+    if(isset($_POST['email'])){
+
+        $email = $_POST['email'];
+
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -53,9 +72,10 @@
 
             <div class="col-sm">
 
+                <!--
                 <img class="float-right pr-3" src="assets/img/user.png">
                 <a class="float-right pr-2 text-decoration-none text-secondary" href="">Sair</a>
-
+                -->
             </div>
 
         </div>
@@ -67,14 +87,40 @@
 
             <h2 class="pb-4">Cadastro de Usuário</h2>
 
-            <form class="pb-5" action="" method="POST">
+            <?php
 
-                <input type="hidden" name="add_usuario" value="add_usuario">
+                if(isset($_GET['erro']) && $_GET['erro'] == 1):
+
+            ?>
+
+                <div class="alert alert-warning" role="alert">
+                    
+                    <?= $_GET['mensagem']; ?>
+
+                </div>
+
+
+            <?php
+
+                endif;
+
+            ?>
+
+            <form class="pb-5" action="../controller/usuario_controller.php" method="POST">
+
+                <input type="hidden" name="add_usuario">
 
                 <div class="form-group" >
 
                     <label>Nome</label>
-                    <input type="text" name="nome" class="form-control"  value="<?= $_POST['nome']; ?>">
+                    <input type="text" name="nome" class="form-control"  value="<?= $nome; ?>">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>E-mail</label>
+                    <input type="mail" name="email" class="form-control"  value="<?= $email; ?>">
 
                 </div>
 
@@ -82,13 +128,6 @@
 
                     <label>CPF</label>
                     <input type="text" name="cpf" class="form-control">
-
-                </div>
-
-                <div class="form-group">
-
-                    <label>E-mail</label>
-                    <input type="mail" name="email" class="form-control"  value="<?= $_POST['email']; ?>">
 
                 </div>
 

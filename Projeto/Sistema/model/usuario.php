@@ -1,33 +1,42 @@
 <?php
+
 require_once("banco.php");
 
 class Usuario {	
 	
-	public $banco;
+  public $banco;
 	
 	function __construct() {
 		
-    $this->banco = new Banco;
-		$this->banco->protegePagina();
+    	$this->banco = new Banco;
+
 	 	function pr($val){
         	echo '<pre>';
         	print_r($val);
         	echo  '</pre>';
 		}
+
 	}
 	
 	//CADASTRO DE USUARIO
-	function addUsuario($idEmpresa, $setor, $nome, $email, $senha){
+	function addUsuario($nome, $email, $cpf, $cep, $endereco, $numero, $bairro, $cidade, $estado, $tel, $senha){
 	
-		$stm = $this->banco->prepare("INSERT INTO Usuario (idEmpresa, idSetor, nome, email, senha) VALUES (:idEmpresa, :idSetor, :nome, :email, :senha)");
+		$stm = $this->banco->prepare("INSERT INTO usuarios (nome, email, cpf, cep, endereco, numero, bairro, cidade, estado, tel, senha) VALUES (:nome, :email, :cpf, :cep, :endereco, :numero, :bairro, :cidade, :estado, :tel, :senha)");
 		
 		try{
-			$resultado = $stm->execute(array(':idEmpresa'=> $idEmpresa,
-                                      ':idSetor'=>$setor,
-                                      ':nome'=>$nome,
-                                      ':email'=>$email,
-                                      ':senha'=>$senha
-											           ));			
+			$resultado = $stm->execute(array(':nome'=> $nome,
+                                             ':email'=>$email,
+                                             ':cpf'=>$cpf,
+                                             ':cep'=>$cep,
+                                             ':endereco'=>$endereco,
+                                             ':numero'=>$numero,
+                                             ':bairro'=>$bairro,
+                                             ':cidade'=>$cidade,
+                                             ':estado'=>$estado,
+                                             ':tel'=>$tel,
+                                             ':senha'=>$senha
+										 ));
+
 		} catch ( PDOException $e ) {
 			echo $e->getMessage();
 		}
@@ -137,7 +146,7 @@ class Usuario {
 		}
 	}
   
-  //BUSCA USUARIO :: ID
+    //BUSCA USUARIO :: ID
 	function buscaUsuarioId($id){
 		try{
 			$stm = $this->banco->prepare("
@@ -328,5 +337,7 @@ class Usuario {
     		echo $e->getMessage();
 		}
 	}
+
+
 }
 ?>

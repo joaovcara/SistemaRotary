@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  
+<style>
+body{
+  font-family: "Myriad Pro", Arial;
+  margin-top: 20px;
+}
+</style>
+
+</head>
+
+<body style="width: 100%; margin: 0; padding: 10px 0; background-color:#e6e6e6;">
+
+  <table border="0" cellspacing="0" cellpadding="0" width="70%" align="center">
+    <tbody>
+      <tr style="width: 80%; height: 91px; background-color: #0071bc; border-bottom: 5px solid #a2bfcf; border-radius: 10px 10px 0 0; min-width: 420px; margin: 0 auto; display:table;">
+        <td><img src="http://{{host}}/css/images/logo_taskflow.png" alt="taskflow" title="taskflow" style="color: #efefef; font-size: 38px; padding-left: 34px;"/></td>
+      </tr>
+      <tr style="background-color: #ffffff; width: 80%; min-width: 420px; margin: 0 auto; display:table;">       
+        <td height="74px" style="color: #333333;
+            font-size: 28px;
+            font-weight: 600;
+            padding-left: 35px;
+            vertical-align: bottom;">
+            Olá {{nome}}!
+        </td>
+      </tr>
+      <tr style="background-color: #ffffff; width: 80%; min-width: 420px; margin: 0 auto; display:table;">
+        <td style="color: #4d4d4d;
+            font-size: 16px;
+            padding-left: 37px;">
+            Você acabou de receber uma nova tarefa:
+        </td>
+      </tr>
+      <tr height="150px" style="background-color: #ffffff; width: 80%; min-width: 420px; margin: 0 auto; display:table;">
+        <td>
+          <table border="0" cellspacing="0" cellpadding="0" width="400px" height= "80px" align="center" style="background-color: #E7EFF4; border-bottom: 2px solid #b6c1c6; border-radius: 7px;  padding: 5px;">
+            <tbody>
+              <tr>
+                <td style="padding-left: 5px; color: #4d4d4d; font-size: 14px;">De: <b>{{de}}</b></td>
+              </tr>
+              <tr>
+                <td style="padding-left: 5px; color: #4d4d4d; font-size: 14px;">{{tarefa}}</td>
+              </tr>
+              <tr>
+                <td style="padding-left: 5px; color: #4d4d4d; font-size: 14px;">Prazo: <b>{{prazo}}</b></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+      <tr height="75px" style="background-color: #ffffff;
+                               width: 80%;
+                               min-width: 420px;
+                               margin: 0 auto;
+                               display:table;
+                               padding-bottom: 30px;">
+        <td align="center">
+          <a href="http://{{link-sistema}}" target="_blank"
+            style="background-color: #0069a3;
+                  border-bottom: 2px solid #003756;
+                  border-radius: 57px;
+                  color: #f4f4f4;
+                  font-size: 16px;
+                  padding: 24px 43px;
+                  text-decoration: none;
+            ">Acessar o sistema</a>
+        </td>
+      </tr>
+    </tbody>
+      <tr align="center" style="width: 80%; min-width: 420px; margin: 0 auto; display:table;">
+      <td align="center" style="font-size:14px; color:#999999;">E-mail automático, não é necessário responde-lo.</td>
+    </tr>
+  </table>
+</body>
+</html>
