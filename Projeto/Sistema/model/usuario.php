@@ -24,17 +24,17 @@ class Usuario {
 		$stm = $this->banco->prepare("INSERT INTO usuarios (nome, email, cpf, cep, endereco, numero, bairro, cidade, estado, tel, senha) VALUES (:nome, :email, :cpf, :cep, :endereco, :numero, :bairro, :cidade, :estado, :tel, :senha)");
 		
 		try{
-			$resultado = $stm->execute(array(':nome'=> $nome,
-                                             ':email'=>$email,
-                                             ':cpf'=>$cpf,
-                                             ':cep'=>$cep,
-                                             ':endereco'=>$endereco,
-                                             ':numero'=>$numero,
-                                             ':bairro'=>$bairro,
-                                             ':cidade'=>$cidade,
-                                             ':estado'=>$estado,
-                                             ':tel'=>$tel,
-                                             ':senha'=>$senha
+			$resultado = $stm->execute(array(':nome'     => $nome,
+                                             ':email'    => $email,
+                                             ':cpf'      => $cpf,
+                                             ':cep'      => $cep,
+                                             ':endereco' => $endereco,
+                                             ':numero'   => $numero,
+                                             ':bairro'   => $bairro,
+                                             ':cidade'   => $cidade,
+                                             ':estado'   => $estado,
+                                             ':tel'      => $tel,
+                                             ':senha'    => $senha
 										 ));
 
 		} catch ( PDOException $e ) {

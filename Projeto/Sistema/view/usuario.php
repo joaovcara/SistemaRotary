@@ -188,7 +188,7 @@
                     <div class="form-group col-6 p-0">
 
                         <label>Telefone</label>
-                        <input type="text" name="telefone" class="form-control">
+                        <input type="text" name="tel" class="form-control">
 
                     </div>
 
