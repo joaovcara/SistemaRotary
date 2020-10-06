@@ -147,14 +147,14 @@
 
                 <div class="row col-12 p-0 m-0">
 
-                    <div class="form-group col-6 p-0">
+                    <div class="form-group col-3 p-0">
 
                         <label>Numero</label>
                         <input type="text" name="numero" class="form-control">
 
                     </div>
 
-                    <div class="form-group col-6 p-0 pl-3">
+                    <div class="form-group col-9 p-0 pl-3">
 
                         <label>Bairro</label>
                         <input type="text" name="bairro" class="form-control">

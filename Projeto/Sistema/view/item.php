@@ -6,7 +6,7 @@
     <!-- Basic Page Needs
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <meta charset="utf-8">
-    <title>Usuário</title>
+    <title>Item</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -53,9 +53,10 @@
 
             <div class="col-sm">
 
+                <!--
                 <img class="float-right pr-3" src="assets/img/user.png">
                 <a class="float-right pr-2 text-decoration-none text-secondary" href="">Sair</a>
-
+                -->
             </div>
 
         </div>
@@ -65,103 +66,74 @@
 
         <div class="col-6">
 
-            <h2 class="pb-4">Cadastro de Usuário</h2>
+            <h2 class="pb-4">Cadastro de Itens</h2>
 
-            <form class="pb-5">
+            <?php
+
+                if(isset($_GET['erro']) && $_GET['erro'] == 1):
+
+            ?>
+
+                <div class="alert alert-warning" role="alert">
+                    
+                    <?= $_GET['mensagem']; ?>
+
+                </div>
+
+
+            <?php
+
+                endif;
+
+            ?>
+
+            <form class="pb-5" action="" method="POST">
+
+                <input type="hidden" name="">
+
+                <div class="form-group">
+                    
+                    <label>Status</label>
+                        
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Disponível</option>
+                        <option>Indisponível</option>
+                    </select>
+                </div>
 
                 <div class="form-group">
 
-                    <label>Nome</label>
-                    <input type="text" name="nome" class="form-control" value="">
-
-                </div>
-
-                <div class="form-group">
-
-                    <label>CPF</label>
-                    <input type="text" name="cpf" class="form-control">
-
-                </div>
-
-                <div class="form-group">
-
-                    <label>E-mail</label>
-                    <input type="mail" name="email" class="form-control">
-
-                </div>
-
-                <div class="form-group pt-3">
-
-                    <label>Endereço</label>
-                    <input type="text" name="endereco" class="form-control">
-
-                </div>
-
-                <div class="row col-12 p-0 m-0">
-
-                    <div class="form-group col-6 p-0">
-
-                        <label>Numero</label>
-                        <input type="text" name="numero" class="form-control">
-
-                    </div>
-
-                    <div class="form-group col-6 p-0 pl-3">
-
-                        <label>Bairro</label>
-                        <input type="text" name="bairro" class="form-control">
-
-                    </div>
-
-                </div>
-
-                <div class="row col-12 p-0 m-0">
-
-                    <div class="form-group col-6 p-0">
-
-                        <label>Cidade</label>
-                        <input type="text" name="cidade" class="form-control">
-
-                    </div>
-
-                    <div class="form-group col-6 p-0 pl-3">
-
-                        <label>Estado</label>
-                        <input type="text" name="estado" class="form-control">
-
-                    </div>
-
-                </div>
-
-                <div class="row col-12 p-0 m-0">
-
-                    <div class="form-group col-6 p-0">
-
-                        <label>CEP</label>
-                        <input type="text" name="cep" class="form-control">
-
-                    </div>
-
-                    <div class="form-group col-6 p-0 pl-3">
-
-                        <label>Telefone</label>
-                        <input type="text" name="telefone" class="form-control">
-
-                    </div>
-
-                </div>
-
-                <div class="form-group pt-3">
-
-                    <label>Senha</label>
-                    <input type="password" name="senha" class="form-control">
+                    <label>Descrição</label>
+                    <input type="text" name="descricao" class="form-control">
 
                 </div>
 
                 <div class="form-group">
 
-                    <label>Repetir Senha</label>
-                    <input type="password" name="repeteSenha" class="form-control">
+                    <label>Categoria</label>
+                    <input type="text" name="categoria" class="form-control">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Número de Série</label>
+                    <input type="text" name="numeroSerie" class="form-control">
+
+                </div>
+
+                <div  class="form-group">
+
+                    <label>Observações do Item</label>
+                    <textarea class="form-control" id="observacaoItem" rows="3"></textarea>
+
+                </div>
+
+                <div class="custom-file">
+
+                    <label>Imagem</label>
+                    <input type="file" class="custom-file-input" id="customFileLang" lang="pt-br">                    
+                    <label class="custom-file-label" for="customFileLang">Selecionar Imagem</label>
 
                 </div>
 
