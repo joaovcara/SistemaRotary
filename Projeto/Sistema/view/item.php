@@ -52,11 +52,10 @@
             </div>
 
             <div class="col-sm">
-
-                <!--
+                
                 <img class="float-right pr-3" src="assets/img/user.png">
                 <a class="float-right pr-2 text-decoration-none text-secondary" href="">Sair</a>
-                -->
+                
             </div>
 
         </div>
@@ -87,18 +86,39 @@
 
             ?>
 
-            <form class="pb-5" action="" method="POST">
+            <?php
 
-                <input type="hidden" name="">
+                if(isset($_GET['erro']) && $_GET['erro'] == 0):
+
+            ?>
+
+                <div class="alert alert-success" role="alert">
+                    
+                    <?= $_GET['mensagem']; ?>
+
+                </div>
+
+
+            <?php
+
+                endif;
+
+            ?>
+
+
+            <form class="pb-5" enctype="multipart/form-data" action="../controller/item_controller.php" method="POST">
+
+                <input type="hidden" name="cad_item">
 
                 <div class="form-group">
                     
                     <label>Status</label>
                         
-                    <select class="form-control" id="exampleFormControlSelect1">
+                    <select class="form-control" id="exampleFormControlSelect1" name="status">
                         <option>Disponível</option>
                         <option>Indisponível</option>
                     </select>
+
                 </div>
 
                 <div class="form-group">
@@ -125,14 +145,14 @@
                 <div  class="form-group">
 
                     <label>Observações do Item</label>
-                    <textarea class="form-control" id="observacaoItem" rows="3"></textarea>
+                    <textarea class="form-control" id="observacaoItem" rows="3" name="observacaoItem"></textarea>
 
                 </div>
 
                 <div class="custom-file">
 
                     <label>Imagem</label>
-                    <input type="file" class="custom-file-input" id="customFileLang" lang="pt-br">                    
+                    <input type="file" class="custom-file-input" id="customFileLang" lang="pt-br" name="customFileLang">                    
                     <label class="custom-file-label" for="customFileLang">Selecionar Imagem</label>
 
                 </div>

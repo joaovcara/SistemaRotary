@@ -1,3 +1,3 @@
 <?php
 
-header('Location: ../Sistema/view/index.html');
+//Coófigo que redireciona para a view principal
