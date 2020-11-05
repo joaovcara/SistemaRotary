@@ -1,18 +1,12 @@
 <?php
 
-    try {
 
-        $conn = new PDO('mysql:host=localhost;dbname=rotary', "root", "maria@2020");
-        //echo "<script>alert('Conectado!');</script>";
-
-    } catch(PDOException $e) {
-
-        echo 'ERROR: ' . $e->getMessage();
-
-    }
+    require_once("../model/banco.php");
+    
+    $conn = new Banco();
 
     //Consulta no banco
-    $sth = $conn->prepare("SELECT * FROM Item ORDER BY Descricao ASC");
+    $sth = $conn->prepare("SELECT * FROM itens ORDER BY Descricao ASC");
     $sth->execute();
 
     $result = $sth->fetch(PDO::FETCH_ASSOC);
@@ -152,14 +146,17 @@
                             <div class="col-1 m-auto">
                                 <input class="ml-3" type="radio" name="select" id="select" value="option1">
                             </div>
-                            <div class="col row border rounded p-4 m-0">
-                                <p class="col-8 m-0"><?php echo $result['Descricao'] ?></p>
-                                <p class="col m-0"><?php echo $result['NumeroSerie'] ?></p>   
+                            <div class="col m-0 p-0 row border rounded">
+                                <div>
+                                    <img class="m-2 align-middle" style="width: 60px; height: 60px;" src="../fotos/<?php echo $result["foto"] ?> " />
+                                </div>                                
+                                <p class="col-7 m-auto"><?php echo $result['descricao'] ?></p>
+                                <p class="col m-auto"><?php echo $result['numeroSerie'] ?></p>   
                             </div>
                         </div>
                     </div>                                
                     <?php
-                        }
+                        }                            
                             while ($result = $sth->fetch(PDO::FETCH_ASSOC));
                         }
                     ?>

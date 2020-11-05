@@ -4,7 +4,7 @@ include("../model/item.php");
 
 $item = new Item;
 
-$uploaddir = '/Applications/XAMPP/xamppfiles/htdocs/ROTARY/fotos';
+$uploaddir = 'C:/xampp/htdocs/SistemaRotary/Projeto/Sistema/fotos/';
 
 echo "<pre>";
 print_r($_POST);
