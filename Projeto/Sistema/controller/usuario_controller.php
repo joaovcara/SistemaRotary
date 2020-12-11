@@ -1,8 +1,10 @@
 <?php
 
-include("../model/usuario.php");
-include("scripts/Bcrypt.php");
+require_once("../model/usuario.php");
+require_once("scripts/Bcrypt.php");
+require_once("../model/banco.php");
 
+$banco = new Banco;
 $usuario = new Usuario;
 
 /*
@@ -110,11 +112,21 @@ if(isset($_POST['add_usuario'])){
    if( $erro == 0 ){
 
       //ENCRIPTOGRAFA A SENHA
-      $senha = Bcrypt::hash($senha);
+      $senha_hash = Bcrypt::hash($senha);
 
-      if( $usuario->addUsuario($nome, $email, $cpf, $cep, $endereco, $numero, $bairro, $cidade, $estado, $tel, $senha) ){
+      if( $usuario->addUsuario($nome, $email, $cpf, $cep, $endereco, $numero, $bairro, $cidade, $estado, $tel, $senha_hash) ){
 
-        header('Location: ../');
+        if( $banco->validaUsuario($email, $senha) ){
+
+            header('Location: ../view/principal.php');
+
+        }else{
+
+          echo 'Erro ao logar';
+          die();
+
+        }
+
 
       }
 
@@ -123,5 +135,112 @@ if(isset($_POST['add_usuario'])){
       header('Location: ../view/usuario.php?erro=1&mensagem=' . $mensagem);
 
     }
+
+}
+
+
+//EDITAR USUARIO
+if(isset($_POST['edit_user'])){
+
+
+  $erro = 0;
+  $mensagem = "";
+   
+  if( !isset($nome[1]) ){
+    $mensagem .= "O nome deve ter pelo menos 2 caracteres. <br>";
+    $erro = 1;
+  }
+
+  if( !isset($cpf[10]) ){
+    $mensagem .= "Insira o CPF. <br>";
+    $erro = 1;
+  }
+   
+  if( !isset($email[3]) ){
+    $mensagem .= "Insira o e-mail. <br>";
+    $erro = 1;
+  }
+   
+  if( !isset($cep[3]) ){
+    $mensagem .= "Insira o CEP. <br>";
+    $erro = 1;
+  }
+
+  if( !isset($endereco[3]) ){
+    $mensagem .= "Insira o endereço. <br>";
+    $erro = 1;
+  }
+
+  if( !isset($numero[1]) ){
+    $mensagem .= "Insira o número do endereço. <br>";
+    $erro = 1;
+  }
+
+  if( !isset($bairro) ){
+    $mensagem .= "Insira o bairro. <br>";
+    $erro = 1;
+  }
+
+  if( !isset($cidade[1]) ){
+    $mensagem .= "Insira a cidade. <br>";
+    $erro = 1;
+  }
+
+  if( !isset($estado[1]) ){
+    $mensagem .= "Insira o estado. <br>";
+    $erro = 1;
+  }
+
+  if( $erro == 0 ){
+
+    if($_SESSION['usuarioTipo'] == 1){
+
+      $id = $_POST['id_user'];
+
+    } else {
+
+      $id = $_SESSION['usuarioID'];
+
+    }
+
+    if( isset($senha) and $senha != '' ){
+
+      //ENCRIPTOGRAFA A SENHA
+      $senha_hash = Bcrypt::hash($senha);
+
+      if($usuario->editUsuario($id, $nome, $cep, $endereco, $numero, $bairro, $cidade, $estado, $tel, $senha_hash)){
+
+        header('Location: ../view/detalhes_usuario.php?id=' . $id . '&erro=0&mensagem=Alterado com sucesso!');
+
+      }else{
+
+        header('Location: ../view/detalhes_usuario.php?id=' . $id . '&erro=1&mensagem=Não foi possivel alterar!');
+
+      }
+
+
+    }else{
+
+      if($usuario->editUsuario($id, $nome, $cep, $endereco, $numero, $bairro, $cidade, $estado, $tel)){
+
+        header('Location: ../view/detalhes_usuario.php?id=' . $id . '&erro=0&mensagem=Alterado com sucesso!');
+
+      }else{
+
+        header('Location: ../view/detalhes_usuario.php?id=' . $id . '&erro=1&mensagem=Não foi possivel alterar!');
+
+      }
+
+
+    }
+
+    
+
+
+  }else{
+
+      header('Location: ../view/detalhes_usuario.php?id=' . $id . '&erro=1&mensagem=' . $mensagem);
+
+  }
 
 }
